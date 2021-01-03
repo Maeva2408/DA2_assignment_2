@@ -18,5 +18,5 @@ It contains csv files : raw datable and variable file
 ## Docs
 * The docs folder contains a PDF and a HTML. They both have the same content : My final analysis of the sales
 
-## Outputs
+## Out
 * the folder contains a self-standing html containing a model comparison of the different model of regression used in my analysis.
