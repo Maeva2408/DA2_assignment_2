@@ -51,15 +51,20 @@ library(tidyverse)
 library(lubridate)
 #installed.packages("kableExtra")
 library(knitr)
-#install.packages('fastDummies')
-library('fastDummies')
 #install.packages("aTSA")
 library(aTSA)
-install.packages("cowplot")
 library(cowplot)
+library(lspline)
+library(estimatr)
+library(texreg)
+library(ggthemes)
+library(geosphere)
 library(moments)
+library(dplyr)
+library(pander)
 library(jtools)
 library(huxtable)
+
 
 ### Read the file
 ## Sales data
@@ -362,9 +367,6 @@ summary(reg4)
 
 #####
 # Creating model summary with texreg
-ca_stat <- export_summs(reg1,reg2,reg3,reg4,
-                              model.names = "Linear1","Linear2", "Linear3", "Linear4")
-as_hux(ca_stat)
 data_out <- "C:/Users/mbrae/OneDrive/Bureau/CEU/DA2/DA2_assignment_2/out/"
 htmlreg( list(reg1 , reg2 , reg3, reg4),
          type = 'html',
@@ -436,8 +438,14 @@ ggplot( data = ca ) +
 
 
 ## BIC and AIC
-BIC(reg2,reg4)
-AIC(reg2,reg4)
+
+
+reg2_lm <- lm( ca$Sales ~ ca$Productive_hours + as.factor(ca$Weather) , data = ca )
+summary(reg2)
+reg4_lm <- lm(ca$Sales ~ as.factor(ca$Day)+ as.factor(ca$Weather) ,  data = ca )
+
+BIC(reg2_lm,reg4_lm)
+AIC(reg2_lm,reg4_lm)
 
 ## I can observe that in the BIC comparaison, the model 1 is smaller so better, but in the AIC comparaison, the modele 
 ## is smaller so better. However the difference are sigificatly small.
@@ -492,5 +500,8 @@ ggplot(  ) +
              size = 1 , linetype = "dashed" ) +
   labs(x = "Dates",y = "Sales (euro)") 
 
-## I can see that
-
+## From my personal experience, a shift could be very difficult if the projection of sales was off by 500 (euro).
+## Between -500 and 500 some solutionS are provided : during the shift when there is less client than expected,
+## we let people go home early, and deduct the work hours. If there are more clients than expected, employees 
+## know they are likely to work a bit longer. The step I would do is investigate those residuals and see if 
+##there were any external problems, if not,I will wait to gather more data before giving those guidelines to the manager.

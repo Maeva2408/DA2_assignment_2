@@ -2,7 +2,7 @@
 title: "Sales Analysis"
 author: "Maeva Braeckevelt"
 output:
-  pdf_document:
+  html_document:
     latex_engine: xelatex
 
 ---
