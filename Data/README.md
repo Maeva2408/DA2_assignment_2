@@ -11,7 +11,7 @@ The data were given to me by the CEO of the company and the weather informations
 
 In the raw data folder there are :
 * CA_cimdix_20oct_30nov : the raw data 
-* variables_ca.csv : the detailed variables of these the data table
+* variables_ca: the detailed variables of these the data table
 
 ## Cleaning the data
 The data were already cleaned
