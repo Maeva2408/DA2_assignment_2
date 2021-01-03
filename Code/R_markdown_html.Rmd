@@ -338,6 +338,7 @@ Model 1 : **Formula :  Sales = 248.54 + 82.1 * Productive hours + 371.24* Sunny 
 
 
 What information can I use for the manager ?
+
 The sales are a little bit higher on a sunny day, that's an interesting information to use in general.
 Knowing how the productive hours impact the sales is very valuable. In the past, We already calculated how much a productive hours need to add if we want to stay profitable (no overstaffing) and keep the team in good working condition (not understaffed) and the result was 65 euro per hour. The new regulation, specially the take-away obligation, might allow the employees to be more productive (less cleaning, serving at the table, etc). It could be interesting to calculate again the ideal number in the new conditions and compare it to the 82.1 euro. Now with that information, the manager could estimate the sales with the hours of staffing and vice versa.
 
@@ -353,6 +354,7 @@ Model 2 : **Formula :  Sales = 6115.9 - 1407.9 * Monday - 301.9 * Saturday - 139
 **Beta 7** : On a sunny Friday, the sales changes by 274 (euro) on average per day.
 
 What information can I provide to the manager ?
+
 Same interpretation for the weather.
 It would have make more sens to transform the variable and talk into percentage. The reason I didn't do it is operational : to create the schedule of the week, the manager has to insert the projected sales into our scheduler program and it calculates automatically the ratio of hours to use. So it is a lot easier for them to talk about average sales that about percentage.
 Thanks to this formula I could create a pre-defined excel, to help them evaluate the sale on a sunny monday for example.
@@ -502,22 +504,22 @@ This appendix contains the documentation of the analysis.
 
 ## 1. Standardization - good to compare the (co)-movement
 
-```{r, echo=FALSE, fig.show = "hold", out.width = "50%", message=FALSE}
+```{r, echo=FALSE, fig.show = "hold", message=FALSE}
 # NO 2: standardization - good to compare the (co)-movement
 
 stdd <- function( x ){ ( x - mean( x , rm.na = T ) ) / sd( x , na.rm = T ) }
 
 ggplot( ca , aes( x = Date ) ) +
-  geom_line( aes( y = stdd( ca$Productive_hours )    , color = "gdp" ) ) +
-  geom_line( aes( y = stdd( ca$Leadership_hours ) , color = "inflat" ) ) +
-  geom_line( aes( y = stdd( ca$hours_of_downtime )  , color = "unemp" ) ) +
-  geom_line( aes( y = stdd( ca$Sales )  , color = "unemp" ) ) +
+  geom_line( aes( y = stdd( Sales )    , color = "Sales" ) ) +
+  geom_line( aes( y = stdd( Productive_hours ) , color = "Productive_hours" ) ) +
+  geom_line( aes( y = stdd( hours_of_downtime )  , color = "hours_of_downtime" ) ) +
+  geom_line( aes( y = stdd( Leadership_hours )    , color = "Leadership_hours") ) +
   scale_color_manual(name = "Variable",
-                     values = c( "gdp" = "red", "inflat" = "blue",
-                                 "unemp" = "orange", "EUR" = "green"),
-                     labels = c("gdp" = "GDP", "inflat"="Inflation",
-                                "unemp"="Unemployment", "EUR"="EUR")) +
-  labs(x="Years",y="Standardized values")
+                     values = c( "Sales" = "red", "Productive_hours" = "blue",
+                                 "hours_of_downtime" = "orange", "Leadership_hours" = "green"),
+                     labels = c("Sales" = "Sales (euro)", "Productive_hours"="Total of productive hours",
+                                "hours_of_downtime"="Total hours of downtime", "Leadership_hours"="Total hours of leadership")) +
+  labs(x="Years",y="Standardized values", title = "Visualization in standardize scale")
 ```
 
 ## 2. Correlation between variables
@@ -533,7 +535,7 @@ chck_sp_ca(ca$hours_of_downtime)
 
 ``` 
 
-## 3. ACF PACF Serial-correlation (a.k.a. Auto-correlation)
+## 3. ACF & PACF Serial-correlation (a.k.a. Auto-correlation)
 
 ```{r, include=F, message=FALSE, echo=FALSE, eval=TRUE, message=FALSE}
 chck_sp_ca <- function(x_var){
@@ -552,26 +554,45 @@ source( paste0( url_git , "Code/ggplot.acorr.R" ) )
 ```
 
 
+
+### Sales
 ```{r, echo=FALSE, fig.show = "hold", out.width = "50%", message=FALSE, warning=FALSE}
 
 # Sales
 ggplot.acorr( ca$Sales , lag.max = 24, ci= 0.95, 
               large.sample.size = F, horizontal = TRUE)
 
+
+```
+
+### Productive hours
+
+```{r, echo=FALSE, fig.show = "hold", message=FALSE, warning=FALSE}
+
 # productives hours
 ggplot.acorr( ca$Productive_hours , lag.max = 24, ci= 0.95, 
               large.sample.size = F, horizontal = TRUE)
+```
+
+### Leadership hours
+
+```{r, echo=FALSE, fig.show = "hold", message=FALSE, warning=FALSE}
 
 # Leadership
 ggplot.acorr( ca$Leadership_hours , lag.max = 24, ci= 0.95, 
               large.sample.size = F, horizontal = TRUE)
+```
+
+### Hours of downtime
+
+```{r, echo=FALSE, fig.show = "hold", message=FALSE, warning=FALSE}
 
 # Hours of downtime
 ggplot.acorr( ca$hours_of_downtime , lag.max = 24, ci= 0.95, 
               large.sample.size = F, horizontal = TRUE)
-
-
 ```
+
+
 
 ## 4. Scatterplot for investigation
 

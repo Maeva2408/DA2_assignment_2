@@ -456,11 +456,7 @@ AIC(reg2_lm,reg4_lm)
 #
 
 # CI of predicted value/regression line is implemented in ggplot
-ggplot( data = df, aes( x = ln_gdppc, y = lifeexp ) ) + 
-  geom_point( color='blue') +
-  geom_smooth( method = lm , color = 'red' , se = T )
 
-##
 # You can get them by predict function
 #   interval can be any of c("none", "confidence", "prediction")
 #   alpha = 0.05 (default) is the significance level
