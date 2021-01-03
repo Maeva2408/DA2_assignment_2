@@ -1,0 +1,187 @@
+<table class="texreg" style="margin: 10px auto;border-collapse: collapse;border-spacing: 0px;caption-side: bottom;color: #000000;border-top: 2px solid #000000;">
+<caption>Modelling Sales analysis</caption>
+<thead>
+<tr>
+<th style="padding-left: 5px;padding-right: 5px;">&nbsp;</th>
+<th style="padding-left: 5px;padding-right: 5px;">All 3</th>
+<th style="padding-left: 5px;padding-right: 5px;">Prod-weather</th>
+<th style="padding-left: 5px;padding-right: 5px;">Prod-Day</th>
+<th style="padding-left: 5px;padding-right: 5px;">Day-Weather</th>
+</tr>
+</thead>
+<tbody>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">(Intercept)</td>
+<td style="padding-left: 5px;padding-right: 5px;">4993.42</td>
+<td style="padding-left: 5px;padding-right: 5px;">248.54</td>
+<td style="padding-left: 5px;padding-right: 5px;">5044.26</td>
+<td style="padding-left: 5px;padding-right: 5px;">6115.87<sup>***</sup></td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(2599.06)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(1522.20)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(2624.86)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(311.74)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">ca$Productive_hours</td>
+<td style="padding-left: 5px;padding-right: 5px;">16.81</td>
+<td style="padding-left: 5px;padding-right: 5px;">82.41<sup>**</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">18.72</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(39.57)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(27.00)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(38.96)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Weather)rainy</td>
+<td style="padding-left: 5px;padding-right: 5px;">-327.18</td>
+<td style="padding-left: 5px;padding-right: 5px;">-336.27</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-324.03</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(189.12)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(241.89)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(176.98)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Weather)sunny</td>
+<td style="padding-left: 5px;padding-right: 5px;">267.81</td>
+<td style="padding-left: 5px;padding-right: 5px;">371.24</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">274.03</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(231.00)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(251.61)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(223.19)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Monday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1247.22<sup>*</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1417.15<sup>*</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">-1407.88<sup>**</sup></td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(525.59)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(536.53)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(402.50)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Saturday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-252.85</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-247.29</td>
+<td style="padding-left: 5px;padding-right: 5px;">-301.89</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(407.48)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(399.85)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(419.15)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Sunday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1236.89</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1362.90<sup>*</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">-1392.28<sup>***</sup></td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(634.91)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(646.52)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(348.97)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Thursday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-943.85<sup>*</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1030.39<sup>**</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">-1054.73<sup>***</sup></td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(378.45)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(377.32)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(288.37)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Tuesday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-726.27</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-1008.67<sup>*</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">-857.85<sup>*</sup></td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(468.91)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(431.11)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(365.71)</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">as.factor(ca$Day)Wednesday</td>
+<td style="padding-left: 5px;padding-right: 5px;">-611.25</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">-696.60</td>
+<td style="padding-left: 5px;padding-right: 5px;">-732.65</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(475.30)</td>
+<td style="padding-left: 5px;padding-right: 5px;">&nbsp;</td>
+<td style="padding-left: 5px;padding-right: 5px;">(469.90)</td>
+<td style="padding-left: 5px;padding-right: 5px;">(373.62)</td>
+</tr>
+<tr style="border-top: 1px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">R<sup>2</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">0.58</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.42</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.52</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.57</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">Adj. R<sup>2</sup></td>
+<td style="padding-left: 5px;padding-right: 5px;">0.46</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.37</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.42</td>
+<td style="padding-left: 5px;padding-right: 5px;">0.47</td>
+</tr>
+<tr>
+<td style="padding-left: 5px;padding-right: 5px;">Num. obs.</td>
+<td style="padding-left: 5px;padding-right: 5px;">42</td>
+<td style="padding-left: 5px;padding-right: 5px;">42</td>
+<td style="padding-left: 5px;padding-right: 5px;">42</td>
+<td style="padding-left: 5px;padding-right: 5px;">42</td>
+</tr>
+<tr style="border-bottom: 2px solid #000000;">
+<td style="padding-left: 5px;padding-right: 5px;">RMSE</td>
+<td style="padding-left: 5px;padding-right: 5px;">582.03</td>
+<td style="padding-left: 5px;padding-right: 5px;">625.77</td>
+<td style="padding-left: 5px;padding-right: 5px;">602.16</td>
+<td style="padding-left: 5px;padding-right: 5px;">575.89</td>
+</tr>
+</tbody>
+<tfoot>
+<tr>
+<td style="font-size: 0.8em;" colspan="5"><sup>***</sup>p &lt; 0.001; <sup>**</sup>p &lt; 0.01; <sup>*</sup>p &lt; 0.05</td>
+</tr>
+</tfoot>
+</table>
